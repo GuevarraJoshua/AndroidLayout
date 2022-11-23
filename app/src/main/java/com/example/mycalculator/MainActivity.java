@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText edtNum1, edtNum2;
+    private EditText edtNum1, edtNum2, edtNum3;
     private TextView txtResults;
     String str1, str2;
-    int num1, num2;
+    int num1, num2, num3;
 
 
     @Override
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAddClick(View view){
         if(getNumber()){
-            int sum = num1 + num2;
+            int sum = num1 + num2 + num3;
             txtResults.setText("Answer : " + Integer.toString(sum));
 
         }
@@ -30,21 +30,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSubClick(View view) {
         if (getNumber()) {
-            int sum = num1 - num2;
+            int sum = num1 - num2 - num3;
             txtResults.setText("Answer : " + Integer.toString(sum));
 
         }
     }
     public void onMultiClick(View view) {
         if (getNumber()) {
-            int sum = num1 * num2;
+            int sum = num1 * num2 * num3;
             txtResults.setText("Answer : " + Integer.toString(sum));
 
         }
     }
     public void onDivClick(View view) {
         if (getNumber()) {
-            double sum = num1 / num2;
+            double sum = num1 / num2 / num3;
             txtResults.setText("Answer : " + Double.toString(sum));
 
         }
@@ -53,17 +53,20 @@ public class MainActivity extends AppCompatActivity {
     public void onClearClick(View view) {
         edtNum1.setText("");
         edtNum2.setText("");
+        edtNum3.setText("");
         txtResults.setText("");
         }
 
     public Boolean getNumber() {
         edtNum1 = (EditText) findViewById(R.id.edtNum1);
         edtNum2 = (EditText) findViewById(R.id.edtNum2);
+        edtNum3 = (EditText) findViewById(R.id.edtNum2);
 
         txtResults = (TextView) findViewById(R.id.txtAnswer);
 
         str1 = edtNum1.getText().toString();
         str2 = edtNum2.getText().toString();
+        str2 = edtNum3.getText().toString();
         if((str1.equals(null) && str2.equals(null)) || (str1.equals("") && str2.equals(""))){
             String res = "Please enter a value";
             txtResults.setText(res);
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             num1 = Integer.parseInt(edtNum1.getText().toString());
             num2 = Integer.parseInt(edtNum2.getText().toString());
+            num3 = Integer.parseInt(edtNum3.getText().toString());
         }
         return true;
 
